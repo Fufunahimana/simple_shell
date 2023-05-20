@@ -3,7 +3,7 @@
 /**
 * add_rvar_node - that function if for
 * add a variable at the end of a r_var list.
-* @head: head of the linked list.
+* @h: head of the linked list.
 * @lvar: length of the variable.
 * @val: value of the variable.
 * @lval: length of the value.

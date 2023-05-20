@@ -27,7 +27,7 @@ help = "\tDefine or display aliases.\n ";
 write(STDOUT_FILENO, help, _strlen(help));
 }
 /**
-* help_cd - That function helps for 
+* help_cd - That function helps for
 * an information of the builtin alias.
 * Return: no return
 */

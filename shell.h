@@ -103,11 +103,11 @@ r_var *add_rvar_node(r_var **head, int lvar, char *var, int lval);
 void free_rvar_list(r_var **head);
 
 /* 0_string.c */
-char *_strcat(char *dest, const char *src);
-char *_strcpy(char *dest, char *src);
-int _strcmp(char *s1, char *s2);
-char *_strchr(char *s, char c);
-int _strspn(char *s, char *accept);
+char *_strcat(char *des_str, const char *s);
+char *_strcpy(char *des_str, char *s);
+int _strcmp(char *str1, char *str2);
+char *_strchr(char *str, char charac);
+int _strspn(char *seg, char *acb);
 
 /*memory.c*/
 
@@ -133,24 +133,26 @@ void print_syntax_error(data_shell *mydata, char *input, int i, int bool);
 int check_syntax_error(data_shell *mydata, char *input);
 
 /* shellLoop.c */
-char *without_comment(char *in);
-void shell_loop(data_shell *datash);
+char *without_comment(char *str);
+void shell_loop(data_shell *mydata);
 
 /* readLine.c */
 char *read_line(int *value);
 
 /* split.c */
-char *swap_char(char *input, int bool);
-void add_nodes(sep_list **head_s, line_list **head_l, char *input);
-void go_next(sep_list **list_s, line_list **list_l, data_shell *mydata);
-int split_commands(data_shell *datash, char *input);
-char **split_line(char *input);
+char *swap_char(char *str, int bool);
+void add_nodes(sep_list **hs, line_list **hl, char *str);
+void go_next(sep_list **list_s, line_list **ll, data_shell *mydata);
+int split_commands(data_shell *mydata, char *str);
+char **split_line(char *str);
 
-/* repVar.c */
-void check_env(r_var **h, char *in, data_shell *data);
-int check_vars(r_var **h, char *in, char *st, data_shell *data);
-char *replaced_input(r_var **head, char *input, char *new_input, int nlen);
-char *rep_var(char *input, data_shell *mydata);
+/*repVar.c */
+void check_env(r_var **head, char *str, data_shell *mydata);
+int check_vars(r_var **head, char *str, char *st, data_shell *mydata);
+char *replaced_input(r_var **head, char *str, char *ni, int nl);
+char *rep_var(char *str, data_shell *mydata);
+
+
 
 /* getLine.c */
 void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
@@ -192,9 +194,9 @@ int (*get_builtin(char *cmd))(data_shell *mydata);
 int exit_shell(data_shell *mydata);
 
 /* stdlib.c */
-int get_len(int n);
-char *aux_itoa(int n);
-int _atoi(char *s);
+int get_len(int number);
+char *aux_itoa(int number);
+int _atoi(char *str);
 
 /* 0_error.c */
 char *strcat_cd(data_shell *, char *, char *, char *);

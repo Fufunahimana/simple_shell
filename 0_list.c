@@ -56,7 +56,7 @@ free(temp);
 }
 
 /**
-* add_line_node_end -That function adds 
+* add_line_node_end -That function adds
 * a command line at the endof a line_list.
 * @h: head of the linked list.
 * @l: command line.

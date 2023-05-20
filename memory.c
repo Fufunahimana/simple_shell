@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* _memcpy - that function is for copies 
+* _memcpy - that function is for copies
 * information between void pointers.
 * @dp: destination pointer.
 * @sp: source pointer.

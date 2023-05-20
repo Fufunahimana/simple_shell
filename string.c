@@ -1,106 +1,106 @@
-#include "main.h"
+#include "shell.h"
 
 /**
- * _strcat - concatenate two strings
- * @dest: char pointer the dest of the copied str
- * @src: const char pointer the source of str
- * Return: the dest
- */
-char *_strcat(char *dest, const char *src)
+* _strcat - Function that concatenatse two strings
+* @des_str: char pointer the desination of the copied string
+* @s: const char pointer the source of string
+* Return: the dest
+*/
+char *_strcat(char *des_str, const char *s)
 {
-	int i;
-	int j;
+int k;
+int l;
 
-	for (i = 0; dest[i] != '\0'; i++)
-		;
+for (k = 0; des_str[k] != '\0'; k++)
+;
 
-	for (j = 0; src[j] != '\0'; j++)
-	{
-		dest[i] = src[j];
-		i++;
-	}
+for (l = 0; s[l] != '\0'; l++)
+{
+des_str[k] = s[l];
+k++;
+}
 
-	dest[i] = '\0';
-	return (dest);
+des_str[k] = '\0';
+return (des_str);
 }
 /**
- * *_strcpy - Copies the string pointed to by src.
- * @dest: Type char pointer the dest of the copied str
- * @src: Type char pointer the source of str
- * Return: the dest.
- */
-char *_strcpy(char *dest, char *src)
+* *_strcpy - Function that Copies the string pointed to by src.
+* @des_str: Type char pointer the dest of the copied str
+* @s: Type char pointer the source of str
+* Return: the dest.
+*/
+char *_strcpy(char *des_str, char *s)
 {
 
-	size_t a;
+size_t p;
 
-	for (a = 0; src[a] != '\0'; a++)
-	{
-		dest[a] = src[a];
-	}
-	dest[a] = '\0';
+for (p = 0; s[p] != '\0'; p++)
+{
+des_str[p] = s[p];
+}
+des_str[p] = '\0';
 
-	return (dest);
+return (des_str);
 }
 /**
- * _strcmp - Function that compares two strings.
- * @s1: type str compared
- * @s2: type str compared
- * Return: Always 0.
- */
-int _strcmp(char *s1, char *s2)
+* _strcmp - Function that is for  compare two strings.
+* @str1: type string compared
+* @str2: type string compared
+* Return: Always 0.
+*/
+int _strcmp(char *str1, char *str2)
 {
-	int i;
+int k;
 
-	for (i = 0; s1[i] == s2[i] && s1[i]; i++)
-		;
+for (k = 0; str1[k] == str2[k] && str1[k]; k++)
+;
 
-	if (s1[i] > s2[i])
-		return (1);
-	if (s1[i] < s2[i])
-		return (-1);
-	return (0);
+if (str1[k] > str2[k])
+return (1);
+if (str1[k] < str2[k])
+return (-1);
+return (0);
 }
 /**
- * _strchr - locates a character in a string,
- * @s: string.
- * @c: character.
- * Return: the pointer to the first occurrence of the character c.
- */
-char *_strchr(char *s, char c)
+* _strchr -Function that is for locate a character in a string,
+* @str: string.
+* @charac: character.
+* Return: the pointer to the first occurrence of the character c.
+*/
+char *_strchr(char *str, char charac)
 {
-	unsigned int i = 0;
+unsigned int k = 0;
 
-	for (; *(s + i) != '\0'; i++)
-		if (*(s + i) == c)
-			return (s + i);
-	if (*(s + i) == c)
-		return (s + i);
-	return ('\0');
+for (; *(str + k) != '\0'; k++)
+if (*(str + k) == charac)
+return (str + k);
+if (*(str + k) == charac)
+return (str + k);
+return ('\0');
 }
 /**
- * _strspn - gets the length of a prefix substring.
- * @s: initial segment.
- * @accept: accepted bytes.
- * Return: the number of accepted bytes.
- */
-int _strspn(char *s, char *accept)
+* _strspn - Function that is for get the length of a prefix substring.
+* @seg: initial segment.
+* @acb: accepted bytes.
+* Return: the number of accepted bytes.
+*/
+int _strspn(char *seg, char *acb)
 {
-	int i, j, bool;
+int k, l, bool;
 
-	for (i = 0; *(s + i) != '\0'; i++)
-	{
-		bool = 1;
-		for (j = 0; *(accept + j) != '\0'; j++)
-		{
-			if (*(s + i) == *(accept + j))
-			{
-				bool = 0;
-				break;
-			}
-		}
-		if (bool == 1)
-			break;
-	}
-	return (i);
+for (k = 0; *(seg + k) != '\0'; k++)
+{
+bool = 1;
+for (l = 0; *(acb + l) != '\0'; l++)
+{
+if (*(seg + k) == *(acb + l))
+{
+bool = 0;
+break;
+}
+}
+if (bool == 1)
+break;
+}
+return (k);
 }

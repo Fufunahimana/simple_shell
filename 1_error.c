@@ -39,7 +39,7 @@ return (error);
 /**
 * error_path_126 - That function shows an error
 * message for path and failure denied permission.
-* @data: data relevant (counter, arguments).
+* @mydata: data relevant (counter, arguments).
 *
 * Return: The error string.
 */
