@@ -1,17 +1,16 @@
-#include "main.h"
+#include "shell.h"
 
 /**
- * read_line - reads the input string.
- *
- * @i_eof: return value of getline function
- * Return: input string
- */
-char *read_line(int *i_eof)
+* read_line - That function is for read the input string.
+*@value: return value of getline function
+* Return: input string
+*/
+char *read_line(int *value)
 {
-	char *input = NULL;
-	size_t bufsize = 0;
+char *input = NULL;
+size_t bufsize = 0;
 
-	*i_eof = getline(&input, &bufsize, stdin);
+*value = getline(&input, &bufsize, stdin);
 
-	return (input);
+return (input);
 }

@@ -1,73 +1,69 @@
-#include "main.h"
+#include "shell.h"
 
 /**
- * free_data - frees data structure
- *
- * @datash: data structure
+ * free_data - Function that frees data structure
+ * @mydata: data structure
  * Return: no return
  */
-void free_data(data_shell *datash)
+void free_data(data_shell *mydata)
 {
-	unsigned int i;
+	unsigned int k;
 
-	for (i = 0; datash->_environ[i]; i++)
+	for (k = 0; mydata->_environ[k]; k++)
 	{
-		free(datash->_environ[i]);
+		free(mydata->_environ[k]);
 	}
 
-	free(datash->_environ);
-	free(datash->pid);
+	free(mydata->_environ);
+	free(mydata->pid);
 }
 
 /**
- * set_data - Initialize data structure
- *
- * @datash: data structure
+ * set_data - This function is for Initialize data structure
+ *@mydata: data structure
  * @av: argument vector
  * Return: no return
  */
-void set_data(data_shell *datash, char **av)
+void set_data(data_shell *mydata, char **av)
 {
-	unsigned int i;
+	unsigned int k;
 
-	datash->av = av;
-	datash->input = NULL;
-	datash->args = NULL;
-	datash->status = 0;
-	datash->counter = 1;
+	mydata->av = av;
+	mydata->input = NULL;
+	mydata->args = NULL;
+	mydata->status = 0;
+	mydata->counter = 1;
 
-	for (i = 0; environ[i]; i++)
+	for (k = 0; environ[k]; k++)
 		;
 
-	datash->_environ = malloc(sizeof(char *) * (i + 1));
+	mydata->_environ = malloc(sizeof(char *) * (k + 1));
 
-	for (i = 0; environ[i]; i++)
+	for (k = 0; environ[k]; k++)
 	{
-		datash->_environ[i] = _strdup(environ[i]);
+		mydata->_environ[k] = _strdup(environ[k]);
 	}
 
-	datash->_environ[i] = NULL;
-	datash->pid = aux_itoa(getpid());
+	mydata->_environ[k] = NULL;
+	mydata->pid = aux_itoa(getpid());
 }
 
 /**
- * main - Entry point
- *
- * @ac: argument count
+ * main - Function that entry point
+ *@ac: argument count
  * @av: argument vector
- *
  * Return: 0 on success.
  */
 int main(int ac, char **av)
 {
-	data_shell datash;
+	data_shell mydata;
 	(void) ac;
 
 	signal(SIGINT, get_sigint);
-	set_data(&datash, av);
-	shell_loop(&datash);
-	free_data(&datash);
-	if (datash.status < 0)
+	set_data(&mydata, av);
+	shell_loop(&mydata);
+	free_data(&mydata);
+	if (mydata.status < 0)
 		return (255);
-	return (datash.status);
+	return (mydata.status);
 }
