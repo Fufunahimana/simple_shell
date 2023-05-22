@@ -45,7 +45,7 @@ return (len);
 */
 int cmp_chars(char str[], const char *delim)
 {
-unsigned int k,l,m;
+unsigned int k, l, m;
 
 for (k = 0, m = 0; str[k]; k++)
 {

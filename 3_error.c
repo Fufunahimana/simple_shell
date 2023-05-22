@@ -131,7 +131,7 @@ if (error == 0)
 free(counter);
 return;
 }
-_strcpy(error,mydata->av[0]);
+_strcpy(error, mydata->av[0]);
 _strcat(error, ": ");
 _strcat(error, counter);
 _strcat(error, msg2);
